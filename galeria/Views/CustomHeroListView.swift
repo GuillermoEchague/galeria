@@ -24,19 +24,32 @@ struct CustomHeroListView: View {
                 } else {
                     List {
                         ForEach(viewModel.heroes, id: \.id) { hero in
-                            VStack(alignment: .leading) {
-                                Text(hero.name ?? "")
-                                    .font(.headline)
-                                Text(hero.descriptionText ?? "")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                Text("Poder: \(hero.power ?? "Desconocido")")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                            .onTapGesture {
-                                heroToEdit = hero
-                                showAddForm = true
+                            HStack {
+                                // Información del héroe
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(hero.name ?? "")
+                                        .font(.headline)
+                                    Text(hero.descriptionText ?? "")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                    Text("Poder: \(hero.power ?? "Desconocido")")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+
+                                Spacer() // Empuja el botón de edición al final
+
+                                // Botón para editar el héroe
+                                Button(action: {
+                                    heroToEdit = hero
+                                    showAddForm = true
+                                }) {
+                                    Image(systemName: "pencil.circle")
+                                        .font(.title2)
+                                        .foregroundColor(.blue)
+                                        .padding(.leading, 8)
+                                }
+                                .buttonStyle(BorderlessButtonStyle()) // Permite el swipe sin interferencias
                             }
                         }
                         .onDelete(perform: deleteHeroes)

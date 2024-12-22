@@ -25,17 +25,19 @@ struct MainView: View {
                 
                 VStack(spacing: 30) {
                     // Animated title
-                    Text("APP SUPER HÉROES")
-                        .font(.system(size: 40, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
-                        .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
-                        .scaleEffect(isAnimating ? 1.1 : 1.0)
-                        .animation(
-                            Animation.easeInOut(duration: 1.5)
-                                .repeatForever(autoreverses: true),
-                            value: isAnimating
-                        )
-                        .padding(.bottom, 40)
+                    
+                       Text("APP SUPER HÉROES")
+                           .font(.system(size: 30, weight: .bold, design: .rounded))
+                           .foregroundColor(.white)
+                           .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+                           .scaleEffect(isAnimating ? 1.1 : 1.0)
+                           .animation(
+                               Animation.easeInOut(duration: 1.5)
+                                   .repeatForever(autoreverses: true),
+                               value: isAnimating
+                           )
+                           .padding(.bottom, 40)
+                      
                     
                     // Navigation buttons with enhanced style
                     NavigationLink(destination: HeroListView()) {
@@ -60,7 +62,7 @@ struct MainView: View {
                         HStack {
                             Image(systemName: "star.fill")
                                 .font(.title2)
-                            Text("Elementos Personalizados")
+                            Text("Héroes Personalizados")
                                 .font(.title2)
                         }
                         .frame(maxWidth: .infinity)
