@@ -39,7 +39,7 @@ final class galeriaUITests: XCTestCase {
            XCTAssertTrue(mainViewTitle.exists, "No se regresó correctamente a la pantalla principal.")
 
            // Navegar a "Elementos Personalizados"
-           let customElementsButton = app.buttons["Elementos Personalizados"]
+           let customElementsButton = app.buttons["Héroes Personalizados"]
            XCTAssertTrue(customElementsButton.exists, "El botón 'Elementos Personalizados' no existe en la pantalla principal.")
            customElementsButton.tap()
 
