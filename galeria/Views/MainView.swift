@@ -54,6 +54,7 @@ struct MainView: View {
                         )
                         .foregroundColor(.white)
                     }
+                    .accessibilityIdentifier("ViewHeroesButton")
                     
                     NavigationLink(destination: CustomHeroListView()) {
                         HStack {
